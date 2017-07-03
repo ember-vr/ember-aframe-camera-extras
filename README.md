@@ -41,7 +41,7 @@ export default ACamera.extend(ComponentActionsMixin, {
 });
 ```
 
-Then, you can customize the actions in the template:
+Then, you can customize the actions in your template:
 
 ```hbs
 <a-scene>
