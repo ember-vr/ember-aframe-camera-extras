@@ -6,6 +6,8 @@
 
 Sync camera rotation and position with query params or network
 
+Demo: https://ember-vr.github.io/ember-aframe-camera-extras
+
 ## Installation
 
 `ember install ember-aframe-camera-extras`

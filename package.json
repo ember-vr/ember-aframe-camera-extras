@@ -28,6 +28,9 @@
     "ember-aframe": "^0.0.12",
     "ember-cli": "2.13.3",
     "ember-cli-dependency-checker": "^2.0.1",
+    "ember-cli-deploy": "^1.0.1",
+    "ember-cli-deploy-build": "^1.1.0",
+    "ember-cli-deploy-git": "^1.1.1",
     "ember-cli-eslint": "^4.1.0",
     "ember-cli-htmlbars": "^2.0.2",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -51,6 +54,7 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "https://ember-vr.github.io/ember-aframe-camera-extras"
   }
 }
