@@ -9,7 +9,7 @@ sudo: false
 dist: trusty
 
 addons:
-  chrome: stable
+  firefox: latest
 
 cache:
   directories:
@@ -31,7 +31,11 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
+  # Firefox virtual display setup
+  - export DISPLAY=:99
+  - sh -e /etc/init.d/xvfb start
   - npm config set spin false
+  - npm install -g npm@4
   - npm --version
 
 script:
