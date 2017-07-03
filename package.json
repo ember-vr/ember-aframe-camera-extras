@@ -1,7 +1,7 @@
 {
   "name": "ember-aframe-camera-extras",
   "version": "0.0.0",
-  "description": "Sync camera rotation and position with query params or network",
+  "description": "Sync camera move with query params or network",
   "keywords": [
     "aframe",
     "ember-addon"
