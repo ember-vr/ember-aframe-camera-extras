@@ -1,26 +1,58 @@
 # ember-aframe-camera-extras
 
-This README outlines the details of collaborating on this Ember addon.
+[![npm version](https://badge.fury.io/js/ember-aframe-camera-extras.svg)](https://badge.fury.io/js/ember-aframe-camera-extras)
+[![Build Status](https://travis-ci.org/ember-vr/ember-aframe-camera-extras.svg?branch=master)](https://travis-ci.org/ember-vr/ember-aframe-camera-extras)
+
+Sync camera rotation and position with query params or network
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-aframe-camera-extras`
-* `npm install`
+`ember install ember-aframe-camera-extras`
 
-## Running
+## Usage
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+Add this to your route:
 
-## Running Tests
+```js
+import Ember from 'ember';
+import QueryParamsRouteMixin from 'ember-aframe-camera-extras/mixins/query-params-route';
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+export default Ember.Route.extend(QueryParamsRouteMixin, {
+});
+```
 
-## Building
+and this to your controller:
 
-* `ember build`
+```js
+import Ember from 'ember';
+import QueryParamsControllerMixin from 'ember-aframe-camera-extras/mixins/query-params-controller';
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+export default Ember.Controller.extend(QueryParamsControllerMixin, {
+});
+```
+
+and this to your camera component:
+
+```js
+import ACamera from 'ember-aframe/components/a-camera';
+import ComponentActionsMixin from 'ember-aframe-camera-extras/mixins/component-actions';
+
+export default ACamera.extend(ComponentActionsMixin, {
+});
+```
+
+Then, you can customize the actions in the template:
+
+```hbs
+<a-scene>
+  {{my-camera
+    cameraQueryParams=cameraQueryParams
+    intervals=(hash
+      cameraMoveSlow=(hash interval=1000 adjustHeight=true)
+      cameraMoveFast=(hash interval=10)
+    )
+    cameraMoveSlow=(action "updateCameraQueryParams")
+    cameraMoveFast=(action "someCustomNetworkCall")
+  }}
+</a-scene>
+```
