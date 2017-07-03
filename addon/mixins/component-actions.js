@@ -17,12 +17,11 @@ export default Mixin.create(RunMixin, {
   rotation: tag`${'_rx'} ${'_ry'} 0`,
   position: tag`${'_px'} ${sum('_py', '_pyOffset')} ${'_pz'}`,
 
-  _initialPosYOffset: 0,
   _pyOffset: 0,
 
   _onLoaded: on('loaded', function() {
-    this.set('_originalPosition', this._stringify());
-    this.set('_initialPosYOffset', this.element.getAttribute('position').y);
+    let originalPosition = this._stringifyPosition();
+    let initialPosYOffset = this.element.getAttribute('position').y;
 
     let intervals = this.get('intervals');
     Object.getOwnPropertyNames(intervals).forEach(key => {
@@ -42,11 +41,13 @@ export default Mixin.create(RunMixin, {
         let params = this._getParams();
 
         if (adjustHeight) {
-          if (this.get('_originalPosition') !== this._stringify()) {
-            this.set('_pyOffset', this.get('_initialPosYOffset'));
+          let position = this._stringifyPosition();
+
+          if (position !== originalPosition) {
+            this.set('_pyOffset', initialPosYOffset);
           }
 
-          params._py -= this.get('_initialPosYOffset');
+          params._py -= initialPosYOffset;
         }
 
         let didIMove = this._haveIMoved(prevParamsKey, params);
@@ -61,7 +62,7 @@ export default Mixin.create(RunMixin, {
     });
   }),
 
-  _stringify() {
+  _stringifyPosition() {
     return stringifyCoordinates(this.element.getAttribute('position')).trim();
   },
 
