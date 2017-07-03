@@ -1,5 +1,26 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<a-scene>
+  {{my-text
+    title="Fast update"
+    time=fastTime
+    queryParams=fastQueryParams
+    position="0 2 -2"
+  }}
+  {{my-text
+    title="Slow update"
+    time=slowTime
+    queryParams=slowQueryParams
+    position="0 1 -2"
+  }}
 
-{{outlet}}
+  {{my-camera
+    cameraQueryParams=cameraQueryParams
+    intervals=(hash
+      cameraMoveFast=(hash interval=10)
+      cameraMoveSlow=(hash interval=1000 adjustHeight=true)
+    )
+    cameraMoveFast=(action "cameraMoveFast")
+    cameraMoveSlow=(action "cameraMoveSlow")
+  }}
+</a-scene>
+
+{{fork-me "https://github.com/ember-vr/ember-aframe-camera-extras"}}
