@@ -1,5 +1,10 @@
 /* eslint-env node */
 module.exports = {
+  // https://github.com/ember-cli/ember-try/issues/133
+  // https://github.com/ember-cli/ember-try/pull/135
+  npmOptions: [
+    '--ignore-engines'
+  ],
   scenarios: [
     {
       name: 'ember-lts-2.8',
@@ -22,22 +27,6 @@ module.exports = {
       npm: {
         devDependencies: {
           'ember-source': '~2.12.0'
-        }
-      }
-    },
-    {
-      name: 'ember-release',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#release'
-        },
-        resolutions: {
-          'ember': 'release'
-        }
-      },
-      npm: {
-        devDependencies: {
-          'ember-source': null
         }
       }
     },

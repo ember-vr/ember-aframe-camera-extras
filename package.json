@@ -16,7 +16,9 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "preselenium": "eslint selenium",
+    "selenium": "mocha selenium"
   },
   "dependencies": {
     "ember-awesome-macros": "^0.38.0",
@@ -25,6 +27,8 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
+    "chai": "^4.0.2",
+    "chromedriver": "^2.30.1",
     "ember-aframe": "^0.0.12",
     "ember-cli": "2.13.3",
     "ember-cli-dependency-checker": "^2.0.1",
@@ -47,7 +51,11 @@
     "ember-native-dom-helpers": "^0.5.2",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.14.0",
-    "loader.js": "^4.2.3"
+    "eslint": "^4.1.1",
+    "http-server": "^0.10.0",
+    "loader.js": "^4.2.3",
+    "mocha": "^3.4.2",
+    "selenium-webdriver": "^3.4.0"
   },
   "peerDependencies": {
     "ember-aframe": ""
