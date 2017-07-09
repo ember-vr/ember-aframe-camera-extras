@@ -44,6 +44,7 @@
     "ember-fork-me": "^1.0.1",
     "ember-load-initializers": "^1.0.0",
     "ember-moment": "^7.3.1",
+    "ember-native-dom-helpers": "^0.5.2",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.14.0",
     "loader.js": "^4.2.3"
