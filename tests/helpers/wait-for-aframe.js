@@ -2,9 +2,13 @@ import Ember from 'ember';
 
 export default Ember.Test.registerAsyncHelper('waitForAframe', function() {
   return new Ember.RSVP.Promise(resolve => {
-    window.AFRAME.registerComponent('test', {
-      init: resolve
+    let component = new Date().getTime().toString();
+    AFRAME.registerComponent(component, {
+      init() {
+        delete AFRAME.components[component];
+        resolve();
+      }
     });
-    document.querySelector('a-camera').setAttribute('test', '');
+    document.querySelector('a-camera').setAttribute(component, '');
   });
 });

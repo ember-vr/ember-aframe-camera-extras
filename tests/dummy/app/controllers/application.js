@@ -14,8 +14,6 @@ export default Ember.Controller.extend(QueryParamsControllerMixin, {
         slowTime: new Date(),
         slowQueryParams: queryParams
       });
-
-      this.send('updateCameraQueryParams', queryParams);
     }
   }
 });
