@@ -19,7 +19,7 @@
     "test": "ember try:each"
   },
   "dependencies": {
-    "ember-awesome-macros": "^0.38.0",
+    "ember-awesome-macros": "^0.39.0",
     "ember-cli-babel": "^6.3.0",
     "ember-lifeline": "^1.3.0"
   },
