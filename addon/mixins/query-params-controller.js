@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Mixin from '@ember/object/mixin';
 import { hash } from 'ember-awesome-macros';
 
-export default Ember.Mixin.create({
+export default Mixin.create({
   queryParams: {
     _rx: 'rx',
     _ry: 'ry',

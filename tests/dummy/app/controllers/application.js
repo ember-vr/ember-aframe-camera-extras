@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
 import QueryParamsControllerMixin from 'ember-aframe-camera-extras/mixins/query-params-controller';
 
-export default Ember.Controller.extend(QueryParamsControllerMixin, {
+export default Controller.extend(QueryParamsControllerMixin, {
   actions: {
     cameraMoveFast(queryParams) {
       this.setProperties({
