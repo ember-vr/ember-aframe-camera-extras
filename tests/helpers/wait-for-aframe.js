@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { Promise } from 'rsvp';
+import { registerAsyncHelper } from '@ember/test';
 
-export default Ember.Test.registerAsyncHelper('waitForAframe', function() {
-  return new Ember.RSVP.Promise(resolve => {
+export default registerAsyncHelper('waitForAframe', function() {
+  return new Promise(resolve => {
     let component = new Date().getTime().toString();
     AFRAME.registerComponent(component, {
       init() {

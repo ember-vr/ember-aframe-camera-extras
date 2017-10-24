@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import EmberObject from '@ember/object';
+import Controller from '@ember/controller';
 import QueryParamsControllerMixin from 'ember-aframe-camera-extras/mixins/query-params-controller';
 import { module, test } from 'qunit';
 
-const QueryParamsController = Ember.Controller.extend(QueryParamsControllerMixin);
+const QueryParamsController = Controller.extend(QueryParamsControllerMixin);
 
 let subject;
 
@@ -33,7 +34,7 @@ test('query params are zeroed out by default', function(assert) {
 test('cameraQueryParams is zeroed out by default', function(assert) {
   let cameraQueryParams = subject.get('cameraQueryParams');
 
-  assert.deepEqual(cameraQueryParams, Ember.Object.create({
+  assert.deepEqual(cameraQueryParams, EmberObject.create({
     _rx: 0,
     _ry: 0,
     _px: 0,
@@ -79,7 +80,7 @@ test('cameraQueryParams are updated via action', function(assert) {
 
   let cameraQueryParams = subject.get('cameraQueryParams');
 
-  assert.deepEqual(cameraQueryParams, Ember.Object.create({
+  assert.deepEqual(cameraQueryParams, EmberObject.create({
     _rx: 1,
     _ry: 2,
     _px: 3,
