@@ -21,7 +21,7 @@
   "dependencies": {
     "ember-awesome-macros": "^0.40.0",
     "ember-cli-babel": "^6.6.0",
-    "ember-lifeline": "^2.0.0"
+    "ember-lifeline": "^3.0.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
