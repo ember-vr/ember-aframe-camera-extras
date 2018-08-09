@@ -1,9 +1,9 @@
-import Mixin from 'ember-metal/mixin';
+import Mixin from '@ember/object/mixin';
 import RunMixin from 'ember-lifeline/mixins/run';
-import on from 'ember-evented/on';
-import { getProperties } from 'ember-metal/get';
-import { setProperties } from 'ember-metal/set';
-import { readOnly } from 'ember-computed';
+import { on } from '@ember/object/evented';
+import { getProperties } from '@ember/object';
+import { setProperties } from '@ember/object';
+import { readOnly } from '@ember/object/computed';
 import { tag, sum } from 'ember-awesome-macros';
 import stringifyCoordinates from 'ember-aframe/utils/stringify-coordinates';
 
@@ -52,7 +52,7 @@ export default Mixin.create(RunMixin, {
 
         let didIMove = this._haveIMoved(prevParamsKey, params);
         if (didIMove) {
-          this.sendAction(actionName, params);
+          this.get(actionName)(params);
         }
 
         this.runTask(next, interval);

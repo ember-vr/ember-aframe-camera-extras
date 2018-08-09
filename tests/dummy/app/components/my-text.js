@@ -1,5 +1,5 @@
 import AEntity from 'ember-aframe/components/a-entity';
-import { readOnly } from 'ember-computed';
+import { readOnly } from '@ember/object/computed';
 
 export default AEntity.extend({
   rx: readOnly('queryParams._rx'),
