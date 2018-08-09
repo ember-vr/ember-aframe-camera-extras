@@ -1,7 +1,7 @@
 import { Promise } from 'rsvp';
-import { registerAsyncHelper } from '@ember/test';
+import AFRAME from 'aframe';
 
-export default registerAsyncHelper('waitForAframe', function() {
+export default function waitForAframe() {
   return new Promise(resolve => {
     let component = new Date().getTime().toString();
     AFRAME.registerComponent(component, {
@@ -12,4 +12,4 @@ export default registerAsyncHelper('waitForAframe', function() {
     });
     document.querySelector('a-camera').setAttribute(component, '');
   });
-});
+}
