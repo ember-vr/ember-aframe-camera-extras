@@ -16,6 +16,8 @@
 /.template-lintrc.js
 /.travis.yml
 /bower.json
+/config/dependency-lint.js
+/config/deploy.js
 /config/ember-try.js
 /ember-cli-build.js
 /testem.js
