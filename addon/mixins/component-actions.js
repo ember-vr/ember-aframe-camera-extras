@@ -5,6 +5,7 @@ import { getProperties, setProperties } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { tag, sum } from 'ember-awesome-macros';
 import stringifyCoordinates from 'ember-aframe/utils/stringify-coordinates';
+import hbs from 'htmlbars-inline-precompile';
 
 export default Mixin.create(RunMixin, {
   _rx: readOnly('cameraQueryParams._rx'),
@@ -18,7 +19,11 @@ export default Mixin.create(RunMixin, {
 
   _pyOffset: 0,
 
+  layout: hbs`<a-camera></a-camera>`,
+
   _onLoaded: on('loaded', function() {
+    this.camera = this.element.querySelector('a-camera');
+
     let originalPosition = this._stringifyPosition();
     let initialPosYOffset = this.element.getAttribute('position').y;
 
@@ -62,20 +67,36 @@ export default Mixin.create(RunMixin, {
   }),
 
   _stringifyPosition() {
-    return stringifyCoordinates(this.element.getAttribute('position')).trim();
+    return stringifyCoordinates(this.element.getAttribute('position'));
   },
 
   _getParams() {
-    let camera = this.element;
-    let { x: _rx, y: _ry } = camera.getAttribute('rotation');
-    let { x: _px, y: _py, z: _pz } = camera.getAttribute('position');
-    let params = {
+    let { camera } = this;
+    let { x: rx, y: ry } = camera.getAttribute('rotation');
+    let { x: px, y: py, z: pz } = camera.getAttribute('position');
+    let {
       _rx,
       _ry,
       _px,
       _py,
       _pz
+    } = this.get('cameraQueryParams');
+
+    let params = {
+      _rx: _rx + rx,
+      _ry: _ry + ry,
+      _px: _px + px,
+      _py: _py + py,
+      _pz: _pz + pz
     };
+
+    // let params = {
+    //   _rx: rx,
+    //   _ry: ry,
+    //   _px: px,
+    //   _py: py,
+    //   _pz: pz
+    // };
 
     return params;
   },
