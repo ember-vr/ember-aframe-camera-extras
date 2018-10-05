@@ -4,7 +4,7 @@ ember-aframe-camera-extras
 [![Greenkeeper badge](https://badges.greenkeeper.io/ember-vr/ember-aframe-camera-extras.svg)](https://greenkeeper.io/)
 [![npm version](https://badge.fury.io/js/ember-aframe-camera-extras.svg)](https://badge.fury.io/js/ember-aframe-camera-extras)
 [![Build Status](https://travis-ci.org/ember-vr/ember-aframe-camera-extras.svg?branch=master)](https://travis-ci.org/ember-vr/ember-aframe-camera-extras)
-[![Ember Version](https://img.shields.io/badge/ember-2.12%2B-brightgreen.svg)](https://www.emberjs.com/)
+[![Ember Version](https://img.shields.io/badge/ember-2.16%2B-brightgreen.svg)](https://www.emberjs.com/)
 
 Sync camera rotation and position with query params or network
 
@@ -79,6 +79,7 @@ Contributing
 
 ### Linting
 
+* `npm run lint:hbs`
 * `npm run lint:js`
 * `npm run lint:js -- --fix`
 
