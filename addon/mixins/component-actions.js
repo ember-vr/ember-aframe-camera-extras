@@ -5,7 +5,7 @@ import { getProperties } from '@ember/object';
 import { setProperties } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { tag, sum } from 'ember-awesome-macros';
-import stringifyCoordinates from 'ember-aframe/utils/stringify-coordinates';
+import stringifyCoordinates from 'ember-a-frame/utils/stringify-coordinates';
 
 export default Mixin.create(RunMixin, {
   _rx: readOnly('cameraQueryParams._rx'),
