@@ -52,9 +52,6 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
 
 before_install:
-  # Firefox virtual display setup
-  - export DISPLAY=:99
-  - sh -e /etc/init.d/xvfb start
   - npm config set spin false
   - npm install -g npm@6
   - npm --version

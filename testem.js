@@ -6,5 +6,13 @@ module.exports = {
   ],
   launch_in_dev: [
     'Firefox'
-  ]
+  ],
+  browser_args: {
+    Firefox: {
+      mode: 'ci',
+      args: [
+        '-headless'
+      ]
+    }
+  }
 };
