@@ -2,11 +2,34 @@ import EmberObject from '@ember/object';
 import QueryParamsRouteMixin from 'ember-aframe-camera-extras/mixins/query-params-route';
 import { module, test } from 'qunit';
 
-module('Unit | Mixin | query params route', function() {
-  // Replace this with your real tests.
-  test('it works', function(assert) {
-    let QueryParamsRouteObject = EmberObject.extend(QueryParamsRouteMixin);
-    let subject = QueryParamsRouteObject.create();
-    assert.ok(subject);
+let QueryParamsRouteObject = EmberObject.extend(QueryParamsRouteMixin);
+
+let subject;
+
+module('Unit | Mixin | query params route', function(hooks) {
+  hooks.beforeEach(function() {
+    subject = QueryParamsRouteObject.create();
+  });
+
+  test('cameraQueryParams is initially set on controller', function(assert) {
+    let controller = EmberObject.create({
+      _rx: 1,
+      _ry: 2,
+      _px: 3,
+      _py: 4,
+      _pz: 5
+    });
+
+    subject.setupController(controller);
+
+    let cameraQueryParams = controller.get('cameraQueryParams');
+
+    assert.deepEqual(cameraQueryParams, {
+      _rx: 1,
+      _ry: 2,
+      _px: 3,
+      _py: 4,
+      _pz: 5
+    });
   });
 });
