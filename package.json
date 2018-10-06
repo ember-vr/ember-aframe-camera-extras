@@ -1,6 +1,6 @@
 {
   "name": "ember-aframe-camera-extras",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Sync camera move with query params or network",
   "keywords": [
     "aframe",
