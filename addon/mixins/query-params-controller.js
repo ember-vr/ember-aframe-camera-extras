@@ -1,5 +1,4 @@
 import Mixin from '@ember/object/mixin';
-import { hash } from 'ember-awesome-macros';
 
 export default Mixin.create({
   queryParams: {
@@ -15,14 +14,6 @@ export default Mixin.create({
   _px: 0,
   _py: 0,
   _pz: 0,
-
-  cameraQueryParams: hash({
-    _rx: '_rx',
-    _ry: '_ry',
-    _px: '_px',
-    _py: '_py',
-    _pz: '_pz'
-  }),
 
   actions: {
     updateCameraQueryParams(params) {
