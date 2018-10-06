@@ -1,8 +1,7 @@
 import Mixin from '@ember/object/mixin';
 import RunMixin from 'ember-lifeline/mixins/run';
 import { on } from '@ember/object/evented';
-import { getProperties } from '@ember/object';
-import { setProperties } from '@ember/object';
+import { getProperties, setProperties } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { tag, sum } from 'ember-awesome-macros';
 import stringifyCoordinates from 'ember-aframe/utils/stringify-coordinates';
