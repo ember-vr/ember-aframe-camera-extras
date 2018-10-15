@@ -10,6 +10,8 @@ Sync camera rotation and position with query params or network
 
 Demo: https://ember-vr.github.io/ember-aframe-camera-extras
 
+Rotation doesn't work in A-Frame 0.8 because of https://stackoverflow.com/questions/52815449/incorrent-orientation-with-initial-camera-rotation-in-aframe-0-8
+
 Installation
 ------------------------------------------------------------------------------
 
