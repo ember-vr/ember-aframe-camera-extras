@@ -21,7 +21,7 @@ test('it fires action', function(assert) {
       _rx: 1,
       _ry: 2,
       _px: 3,
-      _py: 5.6,
+      _py: 4,
       _pz: 5
     });
 
