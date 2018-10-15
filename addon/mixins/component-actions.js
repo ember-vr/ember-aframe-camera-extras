@@ -1,7 +1,7 @@
 import Mixin from '@ember/object/mixin';
 import RunMixin from 'ember-lifeline/mixins/run';
 import { on } from '@ember/object/evented';
-import { getProperties, setProperties } from '@ember/object';
+import { getProperties, setProperties, observer } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { tag, sum } from 'ember-awesome-macros';
 import stringifyCoordinates from 'ember-aframe/utils/stringify-coordinates';
@@ -13,12 +13,34 @@ export default Mixin.create(RunMixin, {
   _py: readOnly('cameraQueryParams._py'),
   _pz: readOnly('cameraQueryParams._pz'),
 
-  rotation: tag`${'_rx'} ${'_ry'} 0`,
+  // this doesn't work anymore
+  // https://stackoverflow.com/a/52816998/1703845
+  // rotation: tag`${'_rx'} ${'_ry'} 0`,
   position: tag`${'_px'} ${sum('_py', '_pyOffset')} ${'_pz'}`,
 
   _pyOffset: 0,
 
+  _getRotation() {
+    let { pitchObject, yawObject } = this.element.components['look-controls'];
+    return {
+      x: pitchObject.rotation.x * (180/Math.PI),
+      y: yawObject.rotation.y * (180/Math.PI)
+    };
+  },
+
+  _setRotation(x, y) {
+    let { pitchObject, yawObject } = this.element.components['look-controls'];
+    pitchObject.rotation.x = x * (Math.PI/180);
+    yawObject.rotation.y = y * (Math.PI/180);
+  },
+
+  _rotation: observer('_rx', '_ry', function() {
+    this._setRotation(this.get('_rx'), this.get('_ry'));
+  }),
+
   _onLoaded: on('loaded', function() {
+    this._setRotation(this.get('_rx'), this.get('_ry'));
+
     let originalPosition = this._stringifyPosition();
     let initialPosYOffset = this.element.getAttribute('position').y;
 
@@ -67,7 +89,7 @@ export default Mixin.create(RunMixin, {
 
   _getParams() {
     let camera = this.element;
-    let { x: _rx, y: _ry } = camera.getAttribute('rotation');
+    let { x: _rx, y: _ry } = this._getRotation();
     let { x: _px, y: _py, z: _pz } = camera.getAttribute('position');
     let params = {
       _rx,

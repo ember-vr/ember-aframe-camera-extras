@@ -1,6 +1,7 @@
 import { currentURL, visit, find, settled } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
+import { getProperties } from '@ember/object';
 import { pollTaskFor } from 'ember-lifeline';
 import waitForAframe from '../helpers/wait-for-aframe';
 
@@ -23,6 +24,30 @@ module('Acceptance | application', function(hooks) {
     return params;
   }
 
+  function getRotation(camera) {
+    let { pitchObject, yawObject } = camera.components['look-controls'];
+    return {
+      x: pitchObject.rotation.x * (180/Math.PI),
+      y: yawObject.rotation.y * (180/Math.PI),
+      z: 0
+    };
+  }
+
+  function setRotation(camera, { x, y }) {
+    let { pitchObject, yawObject } = camera.components['look-controls'];
+    pitchObject.rotation.x = x * (Math.PI/180);
+    yawObject.rotation.y = y * (Math.PI/180);
+  }
+
+  function getPosition(camera) {
+    let position = camera.getAttribute('position');
+    return getProperties(position, 'x', 'y', 'z');
+  }
+
+  function setPosition(camera, coordinates) {
+    camera.setAttribute('position', coordinates);
+  }
+
   test('loading a blank url and moving', async function(assert) {
     await visit('/');
 
@@ -32,25 +57,25 @@ module('Acceptance | application', function(hooks) {
 
     assert.equal(currentURL(), '/');
 
-    assert.deepEqual(camera.getAttribute('rotation'), {
+    assert.deepEqual(getRotation(camera), {
       x: 0,
       y: 0,
       z: 0
     });
-    assert.deepEqual(camera.getAttribute('position'), {
+    assert.deepEqual(getPosition(camera), {
       x: 0,
-      y: 1.6,
+      y: 0,
       z: 0
     });
 
-    camera.setAttribute('rotation', {
+    setRotation(camera, {
       x: 1,
       y: 2,
       z: 0
     });
-    camera.setAttribute('position', {
+    setPosition(camera, {
       x: 3,
-      y: 1.6,
+      y: 0,
       z: 4
     });
 
@@ -74,14 +99,14 @@ module('Acceptance | application', function(hooks) {
 
     let camera = find('a-camera');
 
-    assert.deepEqual(camera.getAttribute('rotation'), {
+    assert.deepEqual(getRotation(camera), {
       x: 1,
       y: 2,
       z: 0
     });
-    assert.deepEqual(camera.getAttribute('position'), {
+    assert.deepEqual(getPosition(camera), {
       x: 3,
-      y: 1.6,
+      y: 0,
       z: 4
     });
   });
