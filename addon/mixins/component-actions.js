@@ -34,7 +34,7 @@ export default Mixin.create(RunMixin, {
     yawObject.rotation.y = y * (Math.PI/180);
   },
 
-  _rotation: observer('_rx', '_ry', function() {
+  _rotation: observer('_rx', '_ry', function() { // eslint-disable-line ember/no-observers
     this._setRotation(this.get('_rx'), this.get('_ry'));
   }),
 
