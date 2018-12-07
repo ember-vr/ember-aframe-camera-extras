@@ -51,7 +51,7 @@
     "ember-moment": "kellyselden/ember-moment#ember-macro-helpers",
     "ember-qunit": "^4.0.0",
     "ember-resolver": "^5.0.1",
-    "ember-source": "~3.5.1",
+    "ember-source": "~3.6.0",
     "ember-source-channel-url": "^1.1.0",
     "ember-try": "^0.2.23",
     "eslint-plugin-ember": "^6.0.1",
