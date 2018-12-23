@@ -48,7 +48,7 @@
     "ember-fork-me": "^3.0.0",
     "ember-load-initializers": "^2.0.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-moment": "kellyselden/ember-moment#ember-macro-helpers",
+    "ember-moment": "stefanpenner/ember-moment",
     "ember-qunit": "^4.0.0",
     "ember-resolver": "^5.0.1",
     "ember-source": "~3.5.1",
