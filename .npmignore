@@ -19,6 +19,7 @@
 /config/dependency-lint.js
 /config/deploy.js
 /config/ember-try.js
+/CONTRIBUTING.md
 /ember-cli-build.js
 /testem.js
 /tests/
