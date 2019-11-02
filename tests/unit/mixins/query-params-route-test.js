@@ -2,6 +2,7 @@ import EmberObject from '@ember/object';
 import QueryParamsRouteMixin from 'ember-aframe-camera-extras/mixins/query-params-route';
 import { module, test } from 'qunit';
 
+// eslint-disable-next-line ember/no-new-mixins
 let QueryParamsRouteObject = EmberObject.extend(QueryParamsRouteMixin);
 
 let subject;

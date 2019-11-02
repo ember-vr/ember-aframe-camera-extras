@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import QueryParamsControllerMixin from 'ember-aframe-camera-extras/mixins/query-params-controller';
 import { module, test } from 'qunit';
 
+// eslint-disable-next-line ember/no-new-mixins
 const QueryParamsController = Controller.extend(QueryParamsControllerMixin);
 
 let subject;

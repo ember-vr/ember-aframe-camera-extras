@@ -6,6 +6,7 @@ import { readOnly } from '@ember/object/computed';
 import { tag, sum } from 'ember-awesome-macros';
 import stringifyCoordinates from 'ember-aframe/utils/stringify-coordinates';
 
+// eslint-disable-next-line ember/no-new-mixins
 export default Mixin.create(RunMixin, {
   _rx: readOnly('cameraQueryParams._rx'),
   _ry: readOnly('cameraQueryParams._ry'),

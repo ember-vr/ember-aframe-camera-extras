@@ -16,10 +16,7 @@ module.exports = {
     browser: true
   },
   rules: {
-    'ember/no-jquery': 'error',
-
-    // https://github.com/ember-cli/eslint-plugin-ember/issues/430
-    'ember/no-new-mixins': 'off'
+    'ember/no-jquery': 'error'
   },
   overrides: [
     // node files
