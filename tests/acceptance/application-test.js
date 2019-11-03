@@ -2,7 +2,7 @@ import { currentURL, visit, find, settled } from '@ember/test-helpers';
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import { getProperties } from '@ember/object';
-import { pollTaskFor } from 'ember-lifeline';
+import { pollTaskFor } from 'ember-lifeline/test-support';
 import waitForAframe from '../helpers/wait-for-aframe';
 
 module('Acceptance | application', function(hooks) {
