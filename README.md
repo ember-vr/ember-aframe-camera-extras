@@ -1,7 +1,6 @@
 ember-aframe-camera-extras
 ==============================================================================
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/ember-vr/ember-aframe-camera-extras.svg)](https://greenkeeper.io/)
 [![npm version](https://badge.fury.io/js/ember-aframe-camera-extras.svg)](https://badge.fury.io/js/ember-aframe-camera-extras)
 [![Build Status](https://travis-ci.org/ember-vr/ember-aframe-camera-extras.svg?branch=master)](https://travis-ci.org/ember-vr/ember-aframe-camera-extras)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dd542eba-80b9-4b0f-b9a0-af29101a317e/deploy-status)](https://app.netlify.com/sites/ember-aframe-camera-extras/deploys)
