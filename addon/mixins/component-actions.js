@@ -1,6 +1,7 @@
 import Mixin from '@ember/object/mixin';
 import RunMixin from 'ember-lifeline/mixins/run';
 import { on } from '@ember/object/evented';
+// eslint-disable-next-line ember/no-observers
 import { getProperties, setProperties, observer } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { tag, sum } from 'ember-awesome-macros';
