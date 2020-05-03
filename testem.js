@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
@@ -6,5 +8,6 @@ module.exports = {
   ],
   launch_in_dev: [
     'Firefox'
-  ]
+  ],
+  browser_start_timeout: 120
 };
