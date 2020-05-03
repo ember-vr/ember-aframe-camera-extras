@@ -15,9 +15,9 @@ Rotation doesn't work in A-Frame 0.8 because of https://stackoverflow.com/questi
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.8 or above
+* Ember.js v3.12 or above
 * Ember CLI v2.13 or above
-* Node.js v8 or above
+* Node.js v10 or above
 
 
 Installation
