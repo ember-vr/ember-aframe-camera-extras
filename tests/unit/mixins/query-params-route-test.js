@@ -1,4 +1,5 @@
 import EmberObject from '@ember/object';
+// eslint-disable-next-line ember/no-mixins
 import QueryParamsRouteMixin from 'ember-aframe-camera-extras/mixins/query-params-route';
 import { module, test } from 'qunit';
 

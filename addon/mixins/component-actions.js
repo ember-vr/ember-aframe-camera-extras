@@ -1,4 +1,5 @@
 import Mixin from '@ember/object/mixin';
+// eslint-disable-next-line ember/no-mixins
 import RunMixin from 'ember-lifeline/mixins/run';
 import { on } from '@ember/object/evented';
 // eslint-disable-next-line ember/no-observers
