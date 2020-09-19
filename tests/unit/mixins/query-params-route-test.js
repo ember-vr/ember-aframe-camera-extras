@@ -23,7 +23,7 @@ module('Unit | Mixin | query params route', function(hooks) {
 
     subject.setupController(controller);
 
-    let cameraQueryParams = controller.get('cameraQueryParams');
+    let cameraQueryParams = controller.cameraQueryParams;
 
     assert.deepEqual(cameraQueryParams, {
       _rx: 1,

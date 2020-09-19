@@ -37,16 +37,16 @@ export default Mixin.create(RunMixin, {
   },
 
   _rotation: observer('_rx', '_ry', function() { // eslint-disable-line ember/no-observers
-    this._setRotation(this.get('_rx'), this.get('_ry'));
+    this._setRotation(this._rx, this._ry);
   }),
 
   _onLoaded: on('loaded', function() {
-    this._setRotation(this.get('_rx'), this.get('_ry'));
+    this._setRotation(this._rx, this._ry);
 
     let originalPosition = this._stringifyPosition();
     let initialPosYOffset = this.element.getAttribute('position').y;
 
-    let intervals = this.get('intervals');
+    let intervals = this.intervals;
     Object.getOwnPropertyNames(intervals).forEach(key => {
       let {
         interval,
