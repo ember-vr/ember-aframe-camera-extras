@@ -3,7 +3,7 @@ import Mixin from '@ember/object/mixin';
 import RunMixin from 'ember-lifeline/mixins/run';
 import { on } from '@ember/object/evented';
 // eslint-disable-next-line ember/no-observers
-import { getProperties, setProperties, observer } from '@ember/object';
+import { setProperties, observer } from '@ember/object';
 import { readOnly } from '@ember/object/computed';
 import { tag, sum } from 'ember-awesome-macros';
 import stringifyCoordinates from 'ember-aframe/utils/stringify-coordinates';
@@ -52,10 +52,7 @@ export default Mixin.create(RunMixin, {
       let {
         interval,
         adjustHeight
-      } = getProperties(intervals[key],
-        'interval',
-        'adjustHeight'
-      );
+      } = intervals[key];
 
       let taskName = `_${key}Task`;
       let prevParamsKey = `_${key}Params`;
