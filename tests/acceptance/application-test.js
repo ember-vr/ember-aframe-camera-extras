@@ -41,6 +41,7 @@ module('Acceptance | application', function(hooks) {
 
   function getPosition(camera) {
     let position = camera.getAttribute('position');
+    // eslint-disable-next-line ember/no-get
     return getProperties(position, 'x', 'y', 'z');
   }
 
