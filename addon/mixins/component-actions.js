@@ -1,6 +1,6 @@
 import Mixin from '@ember/object/mixin';
-// eslint-disable-next-line ember/no-mixins
-import RunMixin from 'ember-lifeline/mixins/run';
+import { runTask } from 'ember-lifeline/run-task';
+import { pollTask } from 'ember-lifeline/poll-task';
 import { on } from '@ember/object/evented';
 // eslint-disable-next-line ember/no-observers
 import { setProperties, observer } from '@ember/object';
@@ -9,7 +9,7 @@ import { tag, sum } from 'ember-awesome-macros';
 import stringifyCoordinates from 'ember-aframe/utils/stringify-coordinates';
 
 // eslint-disable-next-line ember/no-new-mixins
-export default Mixin.create(RunMixin, {
+export default Mixin.create({
   _rx: readOnly('cameraQueryParams._rx'),
   _ry: readOnly('cameraQueryParams._ry'),
   _px: readOnly('cameraQueryParams._px'),
@@ -76,10 +76,10 @@ export default Mixin.create(RunMixin, {
           this.get(actionName)(params);
         }
 
-        this.runTask(next, interval);
+        runTask(this, next, interval);
       };
 
-      this.pollTask(taskName, `query-params#${taskName}`);
+      pollTask(this, taskName, `query-params#${taskName}`);
     });
   }),
 
